@@ -13,9 +13,9 @@
 		237669BE2851FFEA00D62A19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 237669BC2851FFEA00D62A19 /* Main.storyboard */; };
 		237669C02851FFEB00D62A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 237669BF2851FFEB00D62A19 /* Assets.xcassets */; };
 		237669C32851FFEB00D62A19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 237669C12851FFEB00D62A19 /* LaunchScreen.storyboard */; };
-		237669D02852035900D62A19 /* ServerTransportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669CF2852035900D62A19 /* ServerTransportViewController.swift */; };
 		237669D5285203CA00D62A19 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669D4285203CA00D62A19 /* APIManager.swift */; };
 		237669D7285204BC00D62A19 /* ServerTransportViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 237669D6285204BC00D62A19 /* ServerTransportViewController.storyboard */; };
+		237669D92852073900D62A19 /* ServerTransportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669D82852073900D62A19 /* ServerTransportViewController.swift */; };
 		54BE4C883245FEEDE0C4BD6D /* Pods_NearbyInteraction_Sandbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1A9290DF84692395A232287 /* Pods_NearbyInteraction_Sandbox.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,9 +28,9 @@
 		237669BF2851FFEB00D62A19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		237669C22851FFEB00D62A19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		237669C42851FFEB00D62A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		237669CF2852035900D62A19 /* ServerTransportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerTransportViewController.swift; sourceTree = SOURCE_ROOT; };
 		237669D4285203CA00D62A19 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		237669D6285204BC00D62A19 /* ServerTransportViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServerTransportViewController.storyboard; sourceTree = "<group>"; };
+		237669D82852073900D62A19 /* ServerTransportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTransportViewController.swift; sourceTree = "<group>"; };
 		C8D511A2A4CD245BAAFE3CED /* Pods-NearbyInteraction-Sandbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyInteraction-Sandbox.debug.xcconfig"; path = "Target Support Files/Pods-NearbyInteraction-Sandbox/Pods-NearbyInteraction-Sandbox.debug.xcconfig"; sourceTree = "<group>"; };
 		CA70C952E5387DA5D00DE0A8 /* Pods-NearbyInteraction-Sandbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyInteraction-Sandbox.release.xcconfig"; path = "Target Support Files/Pods-NearbyInteraction-Sandbox/Pods-NearbyInteraction-Sandbox.release.xcconfig"; sourceTree = "<group>"; };
 		F1A9290DF84692395A232287 /* Pods_NearbyInteraction_Sandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyInteraction_Sandbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +110,7 @@
 		237669CD285200D000D62A19 /* ServerTransportViewController */ = {
 			isa = PBXGroup;
 			children = (
-				237669CF2852035900D62A19 /* ServerTransportViewController.swift */,
+				237669D82852073900D62A19 /* ServerTransportViewController.swift */,
 				237669D6285204BC00D62A19 /* ServerTransportViewController.storyboard */,
 			);
 			path = ServerTransportViewController;
@@ -264,10 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				237669D92852073900D62A19 /* ServerTransportViewController.swift in Sources */,
 				237669BB2851FFEA00D62A19 /* ViewController.swift in Sources */,
 				237669B72851FFEA00D62A19 /* AppDelegate.swift in Sources */,
 				237669D5285203CA00D62A19 /* APIManager.swift in Sources */,
-				237669D02852035900D62A19 /* ServerTransportViewController.swift in Sources */,
 				237669B92851FFEA00D62A19 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
