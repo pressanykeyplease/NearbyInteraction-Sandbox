@@ -16,8 +16,32 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zZ1-ur-CFr">
+                                <rect key="frame" x="114" y="433" width="187" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Test Multipeer Transport"/>
+                                <connections>
+                                    <action selector="didTapMultipeerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Bo-uw-5qt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPu-lP-2lK">
+                                <rect key="frame" x="114" y="493" width="187" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Test Server Transport"/>
+                                <connections>
+                                    <action selector="didTapServerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aa4-Nl-8UJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WPu-lP-2lK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5qB-SF-pAj"/>
+                            <constraint firstItem="zZ1-ur-CFr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FVq-8N-jja"/>
+                            <constraint firstItem="zZ1-ur-CFr" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="IYu-v9-ddQ"/>
+                            <constraint firstItem="WPu-lP-2lK" firstAttribute="top" secondItem="zZ1-ur-CFr" secondAttribute="bottom" constant="29" id="oYt-3y-rHc"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="N4G-Nk-LQV"/>
                 </viewController>
