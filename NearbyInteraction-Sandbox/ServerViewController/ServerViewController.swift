@@ -1,5 +1,5 @@
 //
-//  ServerTransportViewController.swift
+//  ServerViewController.swift
 //  NearbyInteraction-Sandbox
 //
 //  Created by Eduard on 09.06.2022.
@@ -8,7 +8,7 @@
 import NearbyInteraction
 import UIKit
 
-final class ServerTransportViewController: UIViewController {
+final class ServerViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ final class ServerTransportViewController: UIViewController {
 }
 
 // MARK: - Private methods
-private extension ServerTransportViewController {
+private extension ServerViewController {
     func uploadDiscoveryToken(completion: @escaping () -> Void) {
         guard let discoveryToken = nearbySession.discoveryToken,
               let data = try? NSKeyedArchiver.archivedData(withRootObject: discoveryToken, requiringSecureCoding: true) else { return }
@@ -44,7 +44,7 @@ private extension ServerTransportViewController {
 }
 
 // MARK: - NISessionDelegate
-extension ServerTransportViewController: NISessionDelegate {
+extension ServerViewController: NISessionDelegate {
     func session(_ session: NISession, didUpdate nearbyObjects: [NINearbyObject]) {
         print("Nearby objects: \(nearbyObjects.map({ $0.distance }))")
     }

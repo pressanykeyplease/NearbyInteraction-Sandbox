@@ -14,8 +14,10 @@
 		237669C02851FFEB00D62A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 237669BF2851FFEB00D62A19 /* Assets.xcassets */; };
 		237669C32851FFEB00D62A19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 237669C12851FFEB00D62A19 /* LaunchScreen.storyboard */; };
 		237669D5285203CA00D62A19 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669D4285203CA00D62A19 /* APIManager.swift */; };
-		237669D7285204BC00D62A19 /* ServerTransportViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 237669D6285204BC00D62A19 /* ServerTransportViewController.storyboard */; };
-		237669D92852073900D62A19 /* ServerTransportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669D82852073900D62A19 /* ServerTransportViewController.swift */; };
+		237669D7285204BC00D62A19 /* ServerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 237669D6285204BC00D62A19 /* ServerViewController.storyboard */; };
+		237669D92852073900D62A19 /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669D82852073900D62A19 /* ServerViewController.swift */; };
+		23D53730285AD575008328B0 /* MultipeerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D5372F285AD575008328B0 /* MultipeerViewController.storyboard */; };
+		23D53732285AD57D008328B0 /* MultipeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D53731285AD57D008328B0 /* MultipeerViewController.swift */; };
 		4216E049CACBFF781BFBB4A7 /* Pods_NearbyInteraction_Sandbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9778A2D6698A0FF88E21805 /* Pods_NearbyInteraction_Sandbox.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,8 +32,10 @@
 		237669C22851FFEB00D62A19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		237669C42851FFEB00D62A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		237669D4285203CA00D62A19 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		237669D6285204BC00D62A19 /* ServerTransportViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServerTransportViewController.storyboard; sourceTree = "<group>"; };
-		237669D82852073900D62A19 /* ServerTransportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerTransportViewController.swift; sourceTree = "<group>"; };
+		237669D6285204BC00D62A19 /* ServerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServerViewController.storyboard; sourceTree = "<group>"; };
+		237669D82852073900D62A19 /* ServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
+		23D5372F285AD575008328B0 /* MultipeerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MultipeerViewController.storyboard; sourceTree = "<group>"; };
+		23D53731285AD57D008328B0 /* MultipeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerViewController.swift; sourceTree = "<group>"; };
 		EE5327445737D93334F726ED /* Pods-NearbyInteraction-Sandbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyInteraction-Sandbox.release.xcconfig"; path = "Target Support Files/Pods-NearbyInteraction-Sandbox/Pods-NearbyInteraction-Sandbox.release.xcconfig"; sourceTree = "<group>"; };
 		F9778A2D6698A0FF88E21805 /* Pods_NearbyInteraction_Sandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyInteraction_Sandbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,8 +76,8 @@
 				237669CA2851FFFB00D62A19 /* Application */,
 				237669D3285203BA00D62A19 /* API */,
 				237669CC2852008000D62A19 /* WelcomeScreen */,
-				237669CE285200EC00D62A19 /* MultipeerTransportScreen */,
-				237669CD285200D000D62A19 /* ServerTransportViewController */,
+				237669CE285200EC00D62A19 /* MultipeerViewController */,
+				237669CD285200D000D62A19 /* ServerViewController */,
 				237669CB2852000600D62A19 /* Resources */,
 			);
 			path = "NearbyInteraction-Sandbox";
@@ -107,20 +111,22 @@
 			path = WelcomeScreen;
 			sourceTree = "<group>";
 		};
-		237669CD285200D000D62A19 /* ServerTransportViewController */ = {
+		237669CD285200D000D62A19 /* ServerViewController */ = {
 			isa = PBXGroup;
 			children = (
-				237669D82852073900D62A19 /* ServerTransportViewController.swift */,
-				237669D6285204BC00D62A19 /* ServerTransportViewController.storyboard */,
+				237669D82852073900D62A19 /* ServerViewController.swift */,
+				237669D6285204BC00D62A19 /* ServerViewController.storyboard */,
 			);
-			path = ServerTransportViewController;
+			path = ServerViewController;
 			sourceTree = "<group>";
 		};
-		237669CE285200EC00D62A19 /* MultipeerTransportScreen */ = {
+		237669CE285200EC00D62A19 /* MultipeerViewController */ = {
 			isa = PBXGroup;
 			children = (
+				23D53731285AD57D008328B0 /* MultipeerViewController.swift */,
+				23D5372F285AD575008328B0 /* MultipeerViewController.storyboard */,
 			);
-			path = MultipeerTransportScreen;
+			path = MultipeerViewController;
 			sourceTree = "<group>";
 		};
 		237669D3285203BA00D62A19 /* API */ = {
@@ -208,9 +214,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23D53730285AD575008328B0 /* MultipeerViewController.storyboard in Resources */,
 				237669C32851FFEB00D62A19 /* LaunchScreen.storyboard in Resources */,
 				237669C02851FFEB00D62A19 /* Assets.xcassets in Resources */,
-				237669D7285204BC00D62A19 /* ServerTransportViewController.storyboard in Resources */,
+				237669D7285204BC00D62A19 /* ServerViewController.storyboard in Resources */,
 				237669BE2851FFEA00D62A19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,7 +271,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				237669D92852073900D62A19 /* ServerTransportViewController.swift in Sources */,
+				23D53732285AD57D008328B0 /* MultipeerViewController.swift in Sources */,
+				237669D92852073900D62A19 /* ServerViewController.swift in Sources */,
 				237669BB2851FFEA00D62A19 /* ViewController.swift in Sources */,
 				237669B72851FFEA00D62A19 /* AppDelegate.swift in Sources */,
 				237669D5285203CA00D62A19 /* APIManager.swift in Sources */,
