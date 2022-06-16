@@ -10,6 +10,9 @@ import NearbyInteraction
 import UIKit
 
 final class MultipeerViewController: UIViewController {
+    // MARK: - IBOutlets
+    @IBOutlet var distanceLabel: UILabel!
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,12 @@ final class MultipeerViewController: UIViewController {
         startBrowser()
     }
 
+    // MARK: - Actions
+    @IBAction func didTapStartAdvertiser(_ sender: Any) {
+        stopBrowsingAndAdvertising()
+        startAdvertiser()
+    }
+    
     // MARK: - Private constants
     let serviceType = "nisandbox"
 
@@ -49,6 +58,16 @@ private extension MultipeerViewController {
         browser = MCNearbyServiceBrowser(peer: getPeerID(), serviceType: serviceType)
         browser?.delegate = self
         browser?.startBrowsingForPeers()
+    }
+
+    func stopBrowsingAndAdvertising() {
+        if let unwrappedBrowser = browser {
+            unwrappedBrowser.stopBrowsingForPeers()
+        }
+        if let unwrappedAdvertiser = advertiser {
+            unwrappedAdvertiser.stopAdvertisingPeer()
+        }
+        multipeerSession?.disconnect()
     }
 
     func addPeer(name: String) {
@@ -160,5 +179,6 @@ extension MultipeerViewController: MCNearbyServiceBrowserDelegate {
 extension MultipeerViewController: NISessionDelegate {
     func session(_ session: NISession, didUpdate nearbyObjects: [NINearbyObject]) {
         guard let distance = nearbyObjects.first?.distance else { return }
+        distanceLabel.text = String(distance)
     }
 }

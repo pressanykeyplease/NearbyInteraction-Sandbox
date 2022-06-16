@@ -9,16 +9,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Multipeer View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="MultipeerViewController" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MultipeerViewController" id="Y6W-OH-hqX" customClass="MultipeerViewController" customModule="NearbyInteraction_Sandbox" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZh-sQ-zGJ">
+                                <rect key="frame" x="131.5" y="188" width="151" height="78"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1et-BE-FIh">
+                                <rect key="frame" x="145" y="433" width="125" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start advertiser"/>
+                                <connections>
+                                    <action selector="didTapStartAdvertiser:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JrR-TA-Fdd"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1et-BE-FIh" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="UeG-iZ-xes"/>
+                            <constraint firstItem="pZh-sQ-zGJ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="tww-hW-zju"/>
+                            <constraint firstItem="1et-BE-FIh" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="wuz-fU-Ts8"/>
+                            <constraint firstItem="pZh-sQ-zGJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="144" id="yaB-ES-II6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="distanceLabel" destination="pZh-sQ-zGJ" id="qZ1-mG-iDo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
