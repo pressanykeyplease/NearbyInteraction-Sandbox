@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_nisandbox._udp</string>
+		<string>_nisandbox._tcp</string>
+	</array>
+	<key>NSNearbyInteractionAllowOnceUsageDescription</key>
+	<string>NISandbox needs permission to access NI for example purposes</string>
+	<key>NSNearbyInteractionUsageDescription</key>
+	<string>NISandbox needs permission to access NI for example purposes</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>NISandbox needs permission to access NI for example purposes</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
