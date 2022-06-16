@@ -5,6 +5,7 @@
 //  Created by Eduard on 09.06.2022.
 //
 
+import NearbyInteraction
 import UIKit
 
 class ViewController: UIViewController {
@@ -16,15 +17,22 @@ class ViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction func didTapMultipeerButton(_ sender: Any) {
+        guard NISession.isSupported else {
+            showAlert(title: "Your device is not supported")
+            return
+        }
         let storyboard = UIStoryboard(name: "MultipeerViewController", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "MultipeerViewController") as! MultipeerViewController
         navigationController?.pushViewController(vc, animated: true)
     }
 
     @IBAction func didTapServerButton(_ sender: Any) {
+        guard NISession.isSupported else {
+            showAlert(title: "Your device is not supported")
+            return
+        }
         let storyboard = UIStoryboard(name: "ServerViewController", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ServerViewController") as! ServerViewController
         navigationController?.pushViewController(vc, animated: true)
     }
 }
-

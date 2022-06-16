@@ -18,6 +18,7 @@
 		237669D92852073900D62A19 /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669D82852073900D62A19 /* ServerViewController.swift */; };
 		23D53730285AD575008328B0 /* MultipeerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23D5372F285AD575008328B0 /* MultipeerViewController.storyboard */; };
 		23D53732285AD57D008328B0 /* MultipeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D53731285AD57D008328B0 /* MultipeerViewController.swift */; };
+		23D53736285AEDF7008328B0 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D53735285AEDF7008328B0 /* UIViewController+alert.swift */; };
 		4216E049CACBFF781BFBB4A7 /* Pods_NearbyInteraction_Sandbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9778A2D6698A0FF88E21805 /* Pods_NearbyInteraction_Sandbox.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		237669D82852073900D62A19 /* ServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
 		23D5372F285AD575008328B0 /* MultipeerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MultipeerViewController.storyboard; sourceTree = "<group>"; };
 		23D53731285AD57D008328B0 /* MultipeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerViewController.swift; sourceTree = "<group>"; };
+		23D53735285AEDF7008328B0 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 		EE5327445737D93334F726ED /* Pods-NearbyInteraction-Sandbox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyInteraction-Sandbox.release.xcconfig"; path = "Target Support Files/Pods-NearbyInteraction-Sandbox/Pods-NearbyInteraction-Sandbox.release.xcconfig"; sourceTree = "<group>"; };
 		F9778A2D6698A0FF88E21805 /* Pods_NearbyInteraction_Sandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyInteraction_Sandbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 			children = (
 				237669CA2851FFFB00D62A19 /* Application */,
 				237669D3285203BA00D62A19 /* API */,
+				23D53733285AEDDD008328B0 /* Core */,
 				237669CC2852008000D62A19 /* WelcomeScreen */,
 				237669CE285200EC00D62A19 /* MultipeerViewController */,
 				237669CD285200D000D62A19 /* ServerViewController */,
@@ -135,6 +138,22 @@
 				237669D4285203CA00D62A19 /* APIManager.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		23D53733285AEDDD008328B0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				23D53734285AEDE7008328B0 /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		23D53734285AEDE7008328B0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				23D53735285AEDF7008328B0 /* UIViewController+alert.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		40C9722A1698735E63506F80 /* Frameworks */ = {
@@ -274,6 +293,7 @@
 				23D53732285AD57D008328B0 /* MultipeerViewController.swift in Sources */,
 				237669D92852073900D62A19 /* ServerViewController.swift in Sources */,
 				237669BB2851FFEA00D62A19 /* ViewController.swift in Sources */,
+				23D53736285AEDF7008328B0 /* UIViewController+alert.swift in Sources */,
 				237669B72851FFEA00D62A19 /* AppDelegate.swift in Sources */,
 				237669D5285203CA00D62A19 /* APIManager.swift in Sources */,
 				237669B92851FFEA00D62A19 /* SceneDelegate.swift in Sources */,
