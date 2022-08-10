@@ -6,16 +6,11 @@
 //
 
 struct SandboxDTO: Codable {
-    let version: String
     let type: SandboxDTOOperationType
-    let amount: Float?
-    let receiverID: String?
-    let code: Int?
-    let token: String?
+    let info: String?
 }
 
 enum SandboxDTOOperationType: String, Codable {
-    case text
-    case emoji
+    case paymentTransferMessage
     case messageReceivedConfirmation
 }

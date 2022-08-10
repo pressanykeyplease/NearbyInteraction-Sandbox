@@ -179,12 +179,12 @@ extension MultipeerViewController: MCSessionDelegate {
             peerDidShareDiscoveryToken(peer: peerID, token: discoveryToken)
         } else if let dto = try? JSONDecoder().decode(SandboxDTO.self, from: data) {
             switch dto.type {
-            case .text:
-                print(">>- Did received text")
-                send(message: SandboxDTO(version: "", type: .messageReceivedConfirmation, amount: 0, receiverID: "", code: 0, token: ""))
-            case .emoji:
-                print(">>- Did received EMOJI")
-                send(message: SandboxDTO(version: "", type: .messageReceivedConfirmation, amount: 0, receiverID: "", code: 0, token: ""))
+            case .paymentTransferMessage:
+                nearbySession?.invalidate()
+                nearbySession = nil
+                stopBrowsingAndAdvertising()
+                startBrowser()
+                send(message: SandboxDTO(type: .messageReceivedConfirmation, info: nil))
             case .messageReceivedConfirmation:
                 nearbySession?.invalidate()
                 nearbySession = nil
@@ -239,7 +239,7 @@ extension MultipeerViewController: NISessionDelegate {
         guard let distance = nearbyObjects.first?.distance else { return }
         distanceLabel.text = String(distance)
         if isNearby(distance), isSender {
-            send(message: SandboxDTO(version: "10", type: .emoji, amount: 10, receiverID: nil, code: nil, token: nil))
+            send(message: SandboxDTO(type: .paymentTransferMessage, info: nil))
             isSender = false
         }
     }
