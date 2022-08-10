@@ -16,8 +16,6 @@ final class MultipeerViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        nearbySession = NISession()
-        nearbySession?.delegate = self
         peerID = MCPeerID(displayName: deviceName)
         multipeerSession = MCSession(peer: getPeerID(), securityIdentity: nil, encryptionPreference: .none)
         multipeerSession?.delegate = self
@@ -26,12 +24,15 @@ final class MultipeerViewController: UIViewController {
 
     // MARK: - Actions
     @IBAction func didTapStartAdvertiser(_ sender: Any) {
+        sharedTokenWithPeer = false
         stopBrowsingAndAdvertising()
+        isSender = true
         startAdvertiser()
     }
     
     // MARK: - Private constants
     let serviceType = "nisandbox"
+    let nearbyTresholdDistance: Float = 0.15
 
     // MARK: - Private
     var nearbySession: NISession?
@@ -44,6 +45,7 @@ final class MultipeerViewController: UIViewController {
     var connectedPeer: MCPeerID?
     var sharedTokenWithPeer = false
     var peerDisplayName: String?
+    var isSender = false
 }
 
 // MARK: - Private methods
@@ -102,10 +104,35 @@ private extension MultipeerViewController {
         } catch { }
     }
 
+    func send(message: SandboxDTO) {
+        guard let connectedPeersCount = multipeerSession?.connectedPeers.count,
+              let connectedPeers = multipeerSession?.connectedPeers,
+              let messageData = try? JSONEncoder().encode(message),
+              connectedPeersCount > 0 else {
+            return
+        }
+        do {
+            try self.multipeerSession?.send(messageData, toPeers: connectedPeers, with: .reliable)
+        } catch { }
+    }
+
     func peerDidShareDiscoveryToken(peer: MCPeerID, token: NIDiscoveryToken) {
-        let config = NINearbyPeerConfiguration(peerToken: token)
-        guard nearbySession != nil else { fatalError("Nearby session is nil") }
-        nearbySession?.run(config)
+        if isSender {
+            let config = NINearbyPeerConfiguration(peerToken: token)
+            guard nearbySession != nil else { fatalError("Nearby session is nil") }
+            nearbySession?.run(config)
+        } else {
+            let config = NINearbyPeerConfiguration(peerToken: token)
+            nearbySession = NISession()
+            nearbySession?.delegate = self
+            nearbySession?.run(config)
+            guard let discoveryToken = nearbySession?.discoveryToken else { fatalError("Discovery token not exist") }
+            send(discoveryToken)
+        }
+    }
+
+    func isNearby(_ distance: Float) -> Bool {
+        distance <= nearbyTresholdDistance
     }
 }
 
@@ -115,15 +142,18 @@ extension MultipeerViewController: MCSessionDelegate {
         addPeer(name: peerID.displayName)
         switch state {
         case .connected:
-            guard let discoveryToken = nearbySession?.discoveryToken else {
-                fatalError("Discovery token not exist")
+            if isSender {
+                nearbySession = NISession()
+                nearbySession?.delegate = self
+                guard let discoveryToken = nearbySession?.discoveryToken else {
+                    fatalError("Discovery token not exist")
+                }
+                if !sharedTokenWithPeer {
+                    send(discoveryToken)
+                }
+            } else {
             }
-            if !sharedTokenWithPeer {
-                send(discoveryToken)
-            }
-        case .connecting:
-            break
-        case .notConnected:
+        case .connecting, .notConnected:
             break
         @unknown default:
             break
@@ -180,5 +210,9 @@ extension MultipeerViewController: NISessionDelegate {
     func session(_ session: NISession, didUpdate nearbyObjects: [NINearbyObject]) {
         guard let distance = nearbyObjects.first?.distance else { return }
         distanceLabel.text = String(distance)
+        if isNearby(distance), isSender {
+            send(message: SandboxDTO(version: "10", type: .emoji, amount: 10, receiverID: nil, code: nil, token: nil))
+            isSender = false
+        }
     }
 }
