@@ -134,6 +134,20 @@ private extension MultipeerViewController {
     func isNearby(_ distance: Float) -> Bool {
         distance <= nearbyTresholdDistance
     }
+
+    func cancelSearching() {
+        if let connectedPeer = multipeerSession?.connectedPeers.first {
+            multipeerSession?.cancelConnectPeer(connectedPeer)
+            multipeerSession?.disconnect()
+        }
+        if nearbySession != nil {
+            nearbySession?.invalidate()
+            nearbySession = nil
+        }
+        stopBrowsingAndAdvertising()
+        startBrowser()
+        isSender = false
+    }
 }
 
 // MARK: - MCSessionDelegate
@@ -163,6 +177,20 @@ extension MultipeerViewController: MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         if let discoveryToken = try? NSKeyedUnarchiver.unarchivedObject(ofClass: NIDiscoveryToken.self, from: data) {
             peerDidShareDiscoveryToken(peer: peerID, token: discoveryToken)
+        } else if let dto = try? JSONDecoder().decode(SandboxDTO.self, from: data) {
+            switch dto.type {
+            case .text:
+                print(">>- Did received text")
+                send(message: SandboxDTO(version: "", type: .messageReceivedConfirmation, amount: 0, receiverID: "", code: 0, token: ""))
+            case .emoji:
+                print(">>- Did received EMOJI")
+                send(message: SandboxDTO(version: "", type: .messageReceivedConfirmation, amount: 0, receiverID: "", code: 0, token: ""))
+            case .messageReceivedConfirmation:
+                nearbySession?.invalidate()
+                nearbySession = nil
+                stopBrowsingAndAdvertising()
+                startBrowser()
+            }
         }
     }
 

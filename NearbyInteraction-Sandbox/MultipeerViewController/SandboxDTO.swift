@@ -17,4 +17,5 @@ struct SandboxDTO: Codable {
 enum SandboxDTOOperationType: String, Codable {
     case text
     case emoji
+    case messageReceivedConfirmation
 }
