@@ -176,24 +176,28 @@ private extension MultipeerViewController {
                 self.statusLabel.textColor = .black
                 self.sendButton.isHidden = false
                 self.cancelButton.isHidden = true
+                self.segmentedControl.isHidden = false
             case .advertising:
                 self.distanceLabel.isHidden = true
                 self.statusLabel.text = "Searching for device"
                 self.statusLabel.textColor = .black
                 self.sendButton.isHidden = true
                 self.cancelButton.isHidden = false
+                self.segmentedControl.isHidden = true
             case .connecting:
                 self.distanceLabel.isHidden = true
                 self.statusLabel.text = "Connecting to device"
                 self.statusLabel.textColor = .orange
                 self.sendButton.isHidden = true
                 self.cancelButton.isHidden = false
+                self.segmentedControl.isHidden = true
             case .connected:
                 self.distanceLabel.isHidden = false
                 self.statusLabel.text = "Connected to device. Tap to pass data."
                 self.statusLabel.textColor = .green
                 self.sendButton.isHidden = true
                 self.cancelButton.isHidden = false
+                self.segmentedControl.isHidden = true
             }
         }
     }
