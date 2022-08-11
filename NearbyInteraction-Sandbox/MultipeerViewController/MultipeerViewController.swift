@@ -232,6 +232,7 @@ extension MultipeerViewController: MCSessionDelegate {
         } else if let dto = try? JSONDecoder().decode(SandboxDTO.self, from: data) {
             switch dto.type {
             case .paymentTransferMessage:
+                showAlert(title: dto.description ?? "")
                 send(message: SandboxDTO(type: .messageReceivedConfirmation, description: nil))
                 nearbySession?.invalidate()
                 nearbySession = nil
