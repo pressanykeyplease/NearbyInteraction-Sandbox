@@ -174,35 +174,51 @@ private extension MultipeerViewController {
         DispatchQueue.main.async {
             switch state {
             case .browsing:
-                self.distanceLabel.isHidden = true
-                self.statusLabel.text = ""
-                self.statusLabel.textColor = .black
-                self.sendButton.isHidden = false
-                self.cancelButton.isHidden = true
-                self.segmentedControl.isHidden = false
+                self.styleForBrowsingState()
             case .advertising:
-                self.distanceLabel.isHidden = true
-                self.statusLabel.text = "Searching for device"
-                self.statusLabel.textColor = .black
-                self.sendButton.isHidden = true
-                self.cancelButton.isHidden = false
-                self.segmentedControl.isHidden = true
+                self.styleForAdvertisingState()
             case .connecting:
-                self.distanceLabel.isHidden = true
-                self.statusLabel.text = "Connecting to device"
-                self.statusLabel.textColor = .orange
-                self.sendButton.isHidden = true
-                self.cancelButton.isHidden = false
-                self.segmentedControl.isHidden = true
+                self.styleForConnectingState()
             case .connected:
-                self.distanceLabel.isHidden = false
-                self.statusLabel.text = "Connected to device. Tap to pass data."
-                self.statusLabel.textColor = .green
-                self.sendButton.isHidden = true
-                self.cancelButton.isHidden = false
-                self.segmentedControl.isHidden = true
+                self.styleForConnectedState()
             }
         }
+    }
+
+    func styleForBrowsingState() {
+        distanceLabel.isHidden = true
+        statusLabel.text = ""
+        statusLabel.textColor = .black
+        sendButton.isHidden = false
+        cancelButton.isHidden = true
+        segmentedControl.isHidden = false
+    }
+
+    func styleForAdvertisingState() {
+        distanceLabel.isHidden = true
+        statusLabel.text = "Searching for device"
+        statusLabel.textColor = .black
+        sendButton.isHidden = true
+        cancelButton.isHidden = false
+        segmentedControl.isHidden = true
+    }
+
+    func styleForConnectingState() {
+        distanceLabel.isHidden = true
+        statusLabel.text = "Connecting to device"
+        statusLabel.textColor = .orange
+        sendButton.isHidden = true
+        cancelButton.isHidden = false
+        segmentedControl.isHidden = true
+    }
+
+    func styleForConnectedState() {
+        distanceLabel.isHidden = false
+        statusLabel.text = "Connected to device. Tap to pass data."
+        statusLabel.textColor = .green
+        sendButton.isHidden = true
+        cancelButton.isHidden = false
+        segmentedControl.isHidden = true
     }
 }
 
