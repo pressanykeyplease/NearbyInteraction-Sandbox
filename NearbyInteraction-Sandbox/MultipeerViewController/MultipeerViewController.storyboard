@@ -45,14 +45,24 @@
                                     <action selector="didTapCancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Z4K-dP-cVF"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CIO-Ud-rqH">
+                                <rect key="frame" x="45" y="653" width="325" height="31"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CIO-Ud-rqH" secondAttribute="trailing" constant="44" id="GZg-AM-aio"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="1et-BE-FIh" secondAttribute="bottom" constant="95" id="KKx-UJ-gGe"/>
                             <constraint firstItem="rCi-uM-Xnl" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="RWm-lJ-YBN"/>
                             <constraint firstItem="1et-BE-FIh" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="ZTc-es-fzS"/>
+                            <constraint firstItem="1et-BE-FIh" firstAttribute="top" secondItem="CIO-Ud-rqH" secondAttribute="bottom" constant="53" id="g4Y-7f-7WV"/>
                             <constraint firstItem="rCi-uM-Xnl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="49" id="nxb-97-5GY"/>
+                            <constraint firstItem="CIO-Ud-rqH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="45" id="qzM-CP-EE2"/>
                             <constraint firstItem="pZh-sQ-zGJ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="tww-hW-zju"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wFQ-lF-r6X" secondAttribute="bottom" constant="56" id="uKN-PH-k1c"/>
                             <constraint firstItem="wFQ-lF-r6X" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="wmH-WX-uhP"/>
@@ -62,13 +72,14 @@
                     <connections>
                         <outlet property="cancelButton" destination="wFQ-lF-r6X" id="5hV-SJ-FlO"/>
                         <outlet property="distanceLabel" destination="pZh-sQ-zGJ" id="qZ1-mG-iDo"/>
+                        <outlet property="segmentedControl" destination="CIO-Ud-rqH" id="5MQ-lO-HGx"/>
                         <outlet property="sendButton" destination="1et-BE-FIh" id="Js8-f8-95Q"/>
                         <outlet property="statusLabel" destination="rCi-uM-Xnl" id="sDS-6L-Mwy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="113" y="70"/>
+            <point key="canvasLocation" x="111.59420289855073" y="69.642857142857139"/>
         </scene>
     </scenes>
     <resources>

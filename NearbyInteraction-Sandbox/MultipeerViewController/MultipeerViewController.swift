@@ -15,10 +15,12 @@ final class MultipeerViewController: UIViewController {
     @IBOutlet private var distanceLabel: UILabel!
     @IBOutlet private var sendButton: UIButton!
     @IBOutlet private var cancelButton: UIButton!
+    @IBOutlet private var segmentedControl: UISegmentedControl!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSegmentedControl()
         peerID = MCPeerID(displayName: deviceName)
         multipeerSession = MCSession(peer: getPeerID(), securityIdentity: nil, encryptionPreference: .none)
         multipeerSession?.delegate = self
@@ -153,6 +155,14 @@ private extension MultipeerViewController {
 
     func isNearby(_ distance: Float) -> Bool {
         distance <= nearbyTresholdDistance
+    }
+
+    func configureSegmentedControl() {
+        segmentedControl.removeAllSegments()
+        segmentedControl.insertSegment(withTitle: "3", at: 0, animated: false)
+        segmentedControl.insertSegment(withTitle: "2", at: 0, animated: false)
+        segmentedControl.insertSegment(withTitle: "1", at: 0, animated: false)
+        segmentedControl.selectedSegmentIndex = 0
     }
 
     func set(status: MultipeerConnectionStatus) {
