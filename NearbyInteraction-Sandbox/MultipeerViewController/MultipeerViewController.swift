@@ -180,11 +180,11 @@ extension MultipeerViewController: MCSessionDelegate {
         } else if let dto = try? JSONDecoder().decode(SandboxDTO.self, from: data) {
             switch dto.type {
             case .paymentTransferMessage:
+                send(message: SandboxDTO(type: .messageReceivedConfirmation, info: nil))
                 nearbySession?.invalidate()
                 nearbySession = nil
                 stopBrowsingAndAdvertising()
                 startBrowser()
-                send(message: SandboxDTO(type: .messageReceivedConfirmation, info: nil))
             case .messageReceivedConfirmation:
                 nearbySession?.invalidate()
                 nearbySession = nil
@@ -237,7 +237,7 @@ extension MultipeerViewController: MCNearbyServiceBrowserDelegate {
 extension MultipeerViewController: NISessionDelegate {
     func session(_ session: NISession, didUpdate nearbyObjects: [NINearbyObject]) {
         guard let distance = nearbyObjects.first?.distance else { return }
-        distanceLabel.text = String(distance)
+        distanceLabel.text = String(format:"%.2f m", distance)
         if isNearby(distance), isSender {
             send(message: SandboxDTO(type: .paymentTransferMessage, info: nil))
             isSender = false
