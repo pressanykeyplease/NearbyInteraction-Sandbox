@@ -11,8 +11,10 @@ import UIKit
 
 final class MultipeerViewController: UIViewController {
     // MARK: - IBOutlets
+    @IBOutlet var statusLabel: UILabel!
     @IBOutlet var distanceLabel: UILabel!
-
+    @IBOutlet var sendButton: UIButton!
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,7 @@ final class MultipeerViewController: UIViewController {
     }
 
     // MARK: - Actions
-    @IBAction func didTapStartAdvertiser(_ sender: Any) {
+    @IBAction func didTapSendButton(_ sender: Any) {
         sharedTokenWithPeer = false
         stopBrowsingAndAdvertising()
         isSender = true
@@ -54,12 +56,14 @@ private extension MultipeerViewController {
         advertiser = MCNearbyServiceAdvertiser(peer: getPeerID(), discoveryInfo: nil, serviceType: serviceType)
         advertiser?.delegate = self
         advertiser?.startAdvertisingPeer()
+        set(status: .advertising)
     }
 
     func startBrowser() {
         browser = MCNearbyServiceBrowser(peer: getPeerID(), serviceType: serviceType)
         browser?.delegate = self
         browser?.startBrowsingForPeers()
+        set(status: .browsing)
     }
 
     func stopBrowsingAndAdvertising() {
@@ -148,6 +152,33 @@ private extension MultipeerViewController {
         startBrowser()
         isSender = false
     }
+
+    func set(status: MultipeerConnectionStatus) {
+        DispatchQueue.main.async {
+            switch status {
+            case .browsing:
+                self.distanceLabel.isHidden = true
+                self.statusLabel.text = ""
+                self.statusLabel.textColor = .black
+                self.sendButton.isHidden = false
+            case .advertising:
+                self.distanceLabel.isHidden = true
+                self.statusLabel.text = "Searching for device"
+                self.statusLabel.textColor = .black
+                self.sendButton.isHidden = true
+            case .connecting:
+                self.distanceLabel.isHidden = true
+                self.statusLabel.text = "Connecting to device"
+                self.statusLabel.textColor = .orange
+                self.sendButton.isHidden = true
+            case .connected:
+                self.distanceLabel.isHidden = false
+                self.statusLabel.text = "Connected to device"
+                self.statusLabel.textColor = .green
+                self.sendButton.isHidden = true
+            }
+        }
+    }
 }
 
 // MARK: - MCSessionDelegate
@@ -167,8 +198,11 @@ extension MultipeerViewController: MCSessionDelegate {
                 }
             } else {
             }
-        case .connecting, .notConnected:
-            break
+            set(status: .connected)
+        case .connecting:
+            set(status: .connecting)
+        case .notConnected:
+            set(status: .browsing)
         @unknown default:
             break
         }

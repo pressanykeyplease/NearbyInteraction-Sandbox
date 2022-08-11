@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2319363E28A3DF26000F7365 /* SandboxDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319363D28A3DF26000F7365 /* SandboxDTO.swift */; };
+		2319364028A4CC8B000F7365 /* MultipeerConnectionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319363F28A4CC8B000F7365 /* MultipeerConnectionStatus.swift */; };
 		237669B72851FFEA00D62A19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669B62851FFEA00D62A19 /* AppDelegate.swift */; };
 		237669B92851FFEA00D62A19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669B82851FFEA00D62A19 /* SceneDelegate.swift */; };
 		237669BB2851FFEA00D62A19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669BA2851FFEA00D62A19 /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		0B9D061B0B7E78FDCAD9B50D /* Pods-NearbyInteraction-Sandbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyInteraction-Sandbox.debug.xcconfig"; path = "Target Support Files/Pods-NearbyInteraction-Sandbox/Pods-NearbyInteraction-Sandbox.debug.xcconfig"; sourceTree = "<group>"; };
 		2319363D28A3DF26000F7365 /* SandboxDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxDTO.swift; sourceTree = "<group>"; };
+		2319363F28A4CC8B000F7365 /* MultipeerConnectionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectionStatus.swift; sourceTree = "<group>"; };
 		237669B32851FFEA00D62A19 /* NearbyInteraction-Sandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NearbyInteraction-Sandbox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		237669B62851FFEA00D62A19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		237669B82851FFEA00D62A19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				23D53731285AD57D008328B0 /* MultipeerViewController.swift */,
 				23D5372F285AD575008328B0 /* MultipeerViewController.storyboard */,
 				2319363D28A3DF26000F7365 /* SandboxDTO.swift */,
+				2319363F28A4CC8B000F7365 /* MultipeerConnectionStatus.swift */,
 			);
 			path = MultipeerViewController;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				237669D92852073900D62A19 /* ServerViewController.swift in Sources */,
 				237669BB2851FFEA00D62A19 /* ViewController.swift in Sources */,
 				23D53736285AEDF7008328B0 /* UIViewController+alert.swift in Sources */,
+				2319364028A4CC8B000F7365 /* MultipeerConnectionStatus.swift in Sources */,
 				237669B72851FFEA00D62A19 /* AppDelegate.swift in Sources */,
 				237669D5285203CA00D62A19 /* APIManager.swift in Sources */,
 				237669B92851FFEA00D62A19 /* SceneDelegate.swift in Sources */,

@@ -24,25 +24,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1et-BE-FIh">
-                                <rect key="frame" x="145" y="433" width="125" height="31"/>
+                                <rect key="frame" x="179" y="433" width="58" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Start advertiser"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Send"/>
                                 <connections>
-                                    <action selector="didTapStartAdvertiser:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JrR-TA-Fdd"/>
+                                    <action selector="didTapSendButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1DQ-4L-p0I"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rCi-uM-Xnl">
+                                <rect key="frame" x="186" y="93" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="1et-BE-FIh" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="UeG-iZ-xes"/>
+                            <constraint firstItem="rCi-uM-Xnl" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="RWm-lJ-YBN"/>
+                            <constraint firstItem="1et-BE-FIh" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="bx2-eu-p64"/>
+                            <constraint firstItem="rCi-uM-Xnl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="49" id="nxb-97-5GY"/>
                             <constraint firstItem="pZh-sQ-zGJ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="tww-hW-zju"/>
-                            <constraint firstItem="1et-BE-FIh" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="wuz-fU-Ts8"/>
+                            <constraint firstItem="1et-BE-FIh" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="uaO-AK-yZ8"/>
                             <constraint firstItem="pZh-sQ-zGJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="144" id="yaB-ES-II6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="distanceLabel" destination="pZh-sQ-zGJ" id="qZ1-mG-iDo"/>
+                        <outlet property="sendButton" destination="1et-BE-FIh" id="Js8-f8-95Q"/>
+                        <outlet property="statusLabel" destination="rCi-uM-Xnl" id="sDS-6L-Mwy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
