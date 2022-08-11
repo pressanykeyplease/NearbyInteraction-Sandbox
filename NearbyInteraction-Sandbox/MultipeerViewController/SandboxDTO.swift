@@ -7,7 +7,7 @@
 
 struct SandboxDTO: Codable {
     let type: SandboxDTOOperationType
-    let info: String?
+    let description: String?
 }
 
 enum SandboxDTOOperationType: String, Codable {

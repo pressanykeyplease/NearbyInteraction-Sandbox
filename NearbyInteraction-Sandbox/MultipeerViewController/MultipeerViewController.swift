@@ -159,6 +159,8 @@ private extension MultipeerViewController {
 
     func configureSegmentedControl() {
         segmentedControl.removeAllSegments()
+        segmentedControl.insertSegment(withTitle: "5", at: 0, animated: false)
+        segmentedControl.insertSegment(withTitle: "4", at: 0, animated: false)
         segmentedControl.insertSegment(withTitle: "3", at: 0, animated: false)
         segmentedControl.insertSegment(withTitle: "2", at: 0, animated: false)
         segmentedControl.insertSegment(withTitle: "1", at: 0, animated: false)
@@ -230,7 +232,7 @@ extension MultipeerViewController: MCSessionDelegate {
         } else if let dto = try? JSONDecoder().decode(SandboxDTO.self, from: data) {
             switch dto.type {
             case .paymentTransferMessage:
-                send(message: SandboxDTO(type: .messageReceivedConfirmation, info: nil))
+                send(message: SandboxDTO(type: .messageReceivedConfirmation, description: nil))
                 nearbySession?.invalidate()
                 nearbySession = nil
                 stopBrowsingAndAdvertising()
@@ -289,7 +291,8 @@ extension MultipeerViewController: NISessionDelegate {
         guard let distance = nearbyObjects.first?.distance else { return }
         distanceLabel.text = String(format:"%.2f m", distance)
         if isNearby(distance), isSender {
-            send(message: SandboxDTO(type: .paymentTransferMessage, info: nil))
+            let description = String(segmentedControl.selectedSegmentIndex + 1)
+            send(message: SandboxDTO(type: .paymentTransferMessage, description: description))
             isSender = false
         }
     }
