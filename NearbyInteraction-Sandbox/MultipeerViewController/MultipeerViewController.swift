@@ -74,14 +74,14 @@ private extension MultipeerViewController {
         advertiser = MCNearbyServiceAdvertiser(peer: getPeerID(), discoveryInfo: nil, serviceType: serviceType)
         advertiser?.delegate = self
         advertiser?.startAdvertisingPeer()
-        set(status: .advertising)
+        style(for: .advertising)
     }
 
     func startBrowser() {
         browser = MCNearbyServiceBrowser(peer: getPeerID(), serviceType: serviceType)
         browser?.delegate = self
         browser?.startBrowsingForPeers()
-        set(status: .browsing)
+        style(for: .browsing)
     }
 
     func stopBrowsingAndAdvertising() {
@@ -156,7 +156,10 @@ private extension MultipeerViewController {
     func isNearby(_ distance: Float) -> Bool {
         distance <= nearbyTresholdDistance
     }
+}
 
+// MARK: - Style
+private extension MultipeerViewController {
     func configureSegmentedControl() {
         segmentedControl.removeAllSegments()
         segmentedControl.insertSegment(withTitle: "5", at: 0, animated: false)
@@ -167,9 +170,9 @@ private extension MultipeerViewController {
         segmentedControl.selectedSegmentIndex = 0
     }
 
-    func set(status: MultipeerConnectionStatus) {
+    func style(for state: MultipeerConnectionState) {
         DispatchQueue.main.async {
-            switch status {
+            switch state {
             case .browsing:
                 self.distanceLabel.isHidden = true
                 self.statusLabel.text = ""
@@ -220,11 +223,11 @@ extension MultipeerViewController: MCSessionDelegate {
                 }
             } else {
             }
-            set(status: .connected)
+            style(for: .connected)
         case .connecting:
-            set(status: .connecting)
+            style(for: .connecting)
         case .notConnected:
-            set(status: .browsing)
+            style(for: .browsing)
         @unknown default:
             break
         }
