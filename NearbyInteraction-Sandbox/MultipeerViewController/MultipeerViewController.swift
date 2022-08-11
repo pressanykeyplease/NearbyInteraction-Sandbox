@@ -11,9 +11,10 @@ import UIKit
 
 final class MultipeerViewController: UIViewController {
     // MARK: - IBOutlets
-    @IBOutlet var statusLabel: UILabel!
-    @IBOutlet var distanceLabel: UILabel!
-    @IBOutlet var sendButton: UIButton!
+    @IBOutlet private var statusLabel: UILabel!
+    @IBOutlet private var distanceLabel: UILabel!
+    @IBOutlet private var sendButton: UIButton!
+    @IBOutlet private var cancelButton: UIButton!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -31,6 +32,21 @@ final class MultipeerViewController: UIViewController {
         isSender = true
         startAdvertiser()
     }
+
+    @IBAction func didTapCancelButton(_ sender: Any) {
+        if let connectedPeer = multipeerSession?.connectedPeers.first {
+            multipeerSession?.cancelConnectPeer(connectedPeer)
+            multipeerSession?.disconnect()
+        }
+        if nearbySession != nil {
+            nearbySession?.invalidate()
+            nearbySession = nil
+        }
+        stopBrowsingAndAdvertising()
+        startBrowser()
+        isSender = false
+    }
+    
     
     // MARK: - Private constants
     let serviceType = "nisandbox"
@@ -139,20 +155,6 @@ private extension MultipeerViewController {
         distance <= nearbyTresholdDistance
     }
 
-    func cancelSearching() {
-        if let connectedPeer = multipeerSession?.connectedPeers.first {
-            multipeerSession?.cancelConnectPeer(connectedPeer)
-            multipeerSession?.disconnect()
-        }
-        if nearbySession != nil {
-            nearbySession?.invalidate()
-            nearbySession = nil
-        }
-        stopBrowsingAndAdvertising()
-        startBrowser()
-        isSender = false
-    }
-
     func set(status: MultipeerConnectionStatus) {
         DispatchQueue.main.async {
             switch status {
@@ -161,21 +163,25 @@ private extension MultipeerViewController {
                 self.statusLabel.text = ""
                 self.statusLabel.textColor = .black
                 self.sendButton.isHidden = false
+                self.cancelButton.isHidden = true
             case .advertising:
                 self.distanceLabel.isHidden = true
                 self.statusLabel.text = "Searching for device"
                 self.statusLabel.textColor = .black
                 self.sendButton.isHidden = true
+                self.cancelButton.isHidden = false
             case .connecting:
                 self.distanceLabel.isHidden = true
                 self.statusLabel.text = "Connecting to device"
                 self.statusLabel.textColor = .orange
                 self.sendButton.isHidden = true
+                self.cancelButton.isHidden = false
             case .connected:
                 self.distanceLabel.isHidden = false
-                self.statusLabel.text = "Connected to device"
+                self.statusLabel.text = "Connected to device. Tap to pass data."
                 self.statusLabel.textColor = .green
                 self.sendButton.isHidden = true
+                self.cancelButton.isHidden = false
             }
         }
     }
