@@ -1,6 +1,6 @@
 # NearbyInteraction Sandbox
 
-[![NearbyInteraction](https://img.shields.io/badge/Apple-NearbyInteraction-lightgrey)]([https://github.com/Carthage/Carthage](https://developer.apple.com/documentation/nearbyinteraction))
+[![NearbyInteraction](https://img.shields.io/badge/Apple-NearbyInteraction-lightgrey)](https://developer.apple.com/documentation/nearbyinteraction)
 
 This tutorial project is made for practicing in [Nearby Interaction framework](https://developer.apple.com/documentation/nearbyinteraction) by Apple.
 
