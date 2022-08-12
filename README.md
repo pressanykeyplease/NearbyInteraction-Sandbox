@@ -1,6 +1,6 @@
 # NearbyInteraction Sandbox
 
-[![NearbyInteraction](https://img.shields.io/badge/Apple-NearbyInteraction-lightgrey)](https://developer.apple.com/documentation/nearbyinteraction)
+[![Nearby Interaction](https://img.shields.io/badge/Apple-NearbyInteraction-lightgrey)](https://developer.apple.com/documentation/nearbyinteraction)[![Multipeer Connectivity](https://img.shields.io/badge/Apple-Multipeer%20Connectivity-lightgrey)]([https://developer.apple.com/documentation/nearbyinteraction](https://developer.apple.com/documentation/multipeerconnectivity))
 
 This tutorial project is made for practicing in [Nearby Interaction framework](https://developer.apple.com/documentation/nearbyinteraction) by Apple.
 
