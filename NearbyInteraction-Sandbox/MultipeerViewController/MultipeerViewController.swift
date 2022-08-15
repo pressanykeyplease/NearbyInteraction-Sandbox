@@ -20,6 +20,7 @@ final class MultipeerViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(didTapSettingsButton))
         configureSegmentedControl()
         peerID = MCPeerID(displayName: deviceName)
         multipeerSession = MCSession(peer: getPeerID(), securityIdentity: nil, encryptionPreference: .none)
@@ -48,7 +49,13 @@ final class MultipeerViewController: UIViewController {
         startBrowser()
         isSender = false
     }
-    
+
+    @objc func didTapSettingsButton() {
+        let storyboard = UIStoryboard(name: "MultipeerSettingsViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "MultipeerSettingsViewController") as! MultipeerSettingsViewController
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
+    }
     
     // MARK: - Private constants
     let serviceType = "nisandbox"
@@ -319,5 +326,16 @@ extension MultipeerViewController: NISessionDelegate {
             send(message: SandboxDTO(type: .paymentTransferMessage, description: description))
             isSender = false
         }
+    }
+}
+
+// MARK: - MultipeerSettingsViewControllerDelegate
+extension MultipeerViewController: MultipeerSettingsViewControllerDelegate {
+    func didChangeStateVisibility(isHidden: Bool) {
+        statusLabel.isHidden = isHidden
+    }
+
+    func didChangeDistanceVisibility(isHidden: Bool) {
+        distanceLabel.isHidden = isHidden
     }
 }

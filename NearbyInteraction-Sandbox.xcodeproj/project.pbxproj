@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2319363E28A3DF26000F7365 /* SandboxDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319363D28A3DF26000F7365 /* SandboxDTO.swift */; };
 		2319364028A4CC8B000F7365 /* MultipeerConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319363F28A4CC8B000F7365 /* MultipeerConnectionState.swift */; };
+		234B019928AADC9D000F55F1 /* MultipeerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B019828AADC9D000F55F1 /* MultipeerSettingsViewController.swift */; };
+		234B019B28AADCA8000F55F1 /* MultipeerSettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234B019A28AADCA8000F55F1 /* MultipeerSettingsViewController.storyboard */; };
 		236F8A6028A54EF2003B6694 /* nisandbox-example.gif in Resources */ = {isa = PBXBuildFile; fileRef = 236F8A5F28A54EF2003B6694 /* nisandbox-example.gif */; };
 		237669B72851FFEA00D62A19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669B62851FFEA00D62A19 /* AppDelegate.swift */; };
 		237669B92851FFEA00D62A19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669B82851FFEA00D62A19 /* SceneDelegate.swift */; };
@@ -29,6 +31,8 @@
 		0B9D061B0B7E78FDCAD9B50D /* Pods-NearbyInteraction-Sandbox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyInteraction-Sandbox.debug.xcconfig"; path = "Target Support Files/Pods-NearbyInteraction-Sandbox/Pods-NearbyInteraction-Sandbox.debug.xcconfig"; sourceTree = "<group>"; };
 		2319363D28A3DF26000F7365 /* SandboxDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxDTO.swift; sourceTree = "<group>"; };
 		2319363F28A4CC8B000F7365 /* MultipeerConnectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectionState.swift; sourceTree = "<group>"; };
+		234B019828AADC9D000F55F1 /* MultipeerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerSettingsViewController.swift; sourceTree = "<group>"; };
+		234B019A28AADCA8000F55F1 /* MultipeerSettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MultipeerSettingsViewController.storyboard; sourceTree = "<group>"; };
 		236F8A5F28A54EF2003B6694 /* nisandbox-example.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "nisandbox-example.gif"; sourceTree = "<group>"; };
 		237669B32851FFEA00D62A19 /* NearbyInteraction-Sandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NearbyInteraction-Sandbox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		237669B62851FFEA00D62A19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		234B019728AADC85000F55F1 /* MultipeerSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				234B019828AADC9D000F55F1 /* MultipeerSettingsViewController.swift */,
+				234B019A28AADCA8000F55F1 /* MultipeerSettingsViewController.storyboard */,
+			);
+			path = MultipeerSettingsViewController;
+			sourceTree = "<group>";
+		};
 		237669AA2851FFEA00D62A19 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +99,7 @@
 				23D53733285AEDDD008328B0 /* Core */,
 				237669CC2852008000D62A19 /* WelcomeScreen */,
 				237669CE285200EC00D62A19 /* MultipeerViewController */,
+				234B019728AADC85000F55F1 /* MultipeerSettingsViewController */,
 				237669CD285200D000D62A19 /* ServerViewController */,
 				237669CB2852000600D62A19 /* Resources */,
 			);
@@ -248,6 +262,7 @@
 				237669D7285204BC00D62A19 /* ServerViewController.storyboard in Resources */,
 				236F8A6028A54EF2003B6694 /* nisandbox-example.gif in Resources */,
 				237669BE2851FFEA00D62A19 /* Main.storyboard in Resources */,
+				234B019B28AADCA8000F55F1 /* MultipeerSettingsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +324,7 @@
 				237669B72851FFEA00D62A19 /* AppDelegate.swift in Sources */,
 				237669D5285203CA00D62A19 /* APIManager.swift in Sources */,
 				237669B92851FFEA00D62A19 /* SceneDelegate.swift in Sources */,
+				234B019928AADC9D000F55F1 /* MultipeerSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
