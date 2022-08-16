@@ -8,4 +8,5 @@ This tutorial project is made for practicing in [Nearby Interaction framework](h
 
 Limitations:
 * Nearby Interaction is not supported for real devices in [these countries](https://support.apple.com/HT212274)
-* Available for iPhone 11 or later
+* Available for iPhone 11 or later and iPhone SE 2 or later
+
