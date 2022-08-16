@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="PZn-QP-LDA">
-                                <rect key="frame" x="90" y="144" width="234.5" height="74"/>
+                                <rect key="frame" x="90" y="184" width="234.5" height="74"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="rdR-jY-Z4f">
                                         <rect key="frame" x="0.0" y="0.0" width="234.5" height="31"/>
@@ -50,12 +50,22 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q7l-Hx-iWW">
+                                <rect key="frame" x="330.5" y="54" width="60.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Close"/>
+                                <connections>
+                                    <action selector="didTapCloseButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="PkI-vT-AUs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PZn-QP-LDA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="57i-zE-nTO"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="q7l-Hx-iWW" secondAttribute="trailing" constant="23" id="0dw-Eg-rR7"/>
+                            <constraint firstItem="PZn-QP-LDA" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="140" id="57i-zE-nTO"/>
                             <constraint firstItem="PZn-QP-LDA" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Qcp-kX-dm4"/>
+                            <constraint firstItem="q7l-Hx-iWW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="hDo-hD-6St"/>
                         </constraints>
                     </view>
                     <connections>

@@ -40,4 +40,8 @@ final class MultipeerSettingsViewController: UIViewController {
     @objc func didTapDistanceSwitch(_ control: UISwitch) {
         delegate?.didChangeDistanceVisibility(isHidden: !control.isOn)
     }
+
+    @IBAction func didTapCloseButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }
