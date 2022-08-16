@@ -55,6 +55,7 @@ final class MultipeerViewController: UIViewController {
         let vc = storyboard.instantiateViewController(withIdentifier: "MultipeerSettingsViewController") as! MultipeerSettingsViewController
         vc.delegate = self
         present(vc, animated: true, completion: nil)
+        vc.configure(connectionStateVisible: !statusLabel.isHidden, distanceStateVisible: !distanceLabel.isHidden)
     }
     
     // MARK: - Private constants
@@ -193,7 +194,6 @@ private extension MultipeerViewController {
     }
 
     func styleForBrowsingState() {
-        distanceLabel.isHidden = true
         statusLabel.text = ""
         statusLabel.textColor = .black
         sendButton.isHidden = false
@@ -202,7 +202,6 @@ private extension MultipeerViewController {
     }
 
     func styleForAdvertisingState() {
-        distanceLabel.isHidden = true
         statusLabel.text = "Searching for device"
         statusLabel.textColor = .black
         sendButton.isHidden = true
@@ -211,7 +210,6 @@ private extension MultipeerViewController {
     }
 
     func styleForConnectingState() {
-        distanceLabel.isHidden = true
         statusLabel.text = "Connecting to device"
         statusLabel.textColor = .orange
         sendButton.isHidden = true
@@ -220,7 +218,6 @@ private extension MultipeerViewController {
     }
 
     func styleForConnectedState() {
-        distanceLabel.isHidden = false
         statusLabel.text = "Connected to device. Tap to pass data."
         statusLabel.textColor = .green
         sendButton.isHidden = true
