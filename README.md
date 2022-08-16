@@ -5,3 +5,7 @@
 This tutorial project is made for practicing in [Nearby Interaction framework](https://developer.apple.com/documentation/nearbyinteraction) by Apple. Demo app allows you to stimulate the touch of two devices and show on the screen the name of the device that touched you.
 
 ![example](https://github.com/pressanykeyplease/NearbyInteraction-Sandbox/raw/main/NearbyInteraction-Sandbox/Resources/nisandbox-example.gif)
+
+Limitaions:
+* Nearby Interaction is not supported for real devices in [these countries](https://support.apple.com/HT212274)
+* List of available devices
