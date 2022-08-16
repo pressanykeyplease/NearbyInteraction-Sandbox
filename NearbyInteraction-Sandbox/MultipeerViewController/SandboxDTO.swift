@@ -7,10 +7,10 @@
 
 struct SandboxDTO: Codable {
     let type: SandboxDTOOperationType
-    let description: String?
+    let info: String?
 }
 
 enum SandboxDTOOperationType: String, Codable {
-    case paymentTransferMessage
+    case messageTransferType
     case messageReceivedConfirmation
 }

@@ -13,15 +13,13 @@ final class MultipeerViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet private var statusLabel: UILabel!
     @IBOutlet private var distanceLabel: UILabel!
-    @IBOutlet private var sendButton: UIButton!
+    @IBOutlet private var tapButton: UIButton!
     @IBOutlet private var cancelButton: UIButton!
-    @IBOutlet private var segmentedControl: UISegmentedControl!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: #selector(didTapSettingsButton))
-        configureSegmentedControl()
         peerID = MCPeerID(displayName: deviceName)
         multipeerSession = MCSession(peer: getPeerID(), securityIdentity: nil, encryptionPreference: .none)
         multipeerSession?.delegate = self
@@ -29,7 +27,7 @@ final class MultipeerViewController: UIViewController {
     }
 
     // MARK: - Actions
-    @IBAction func didTapSendButton(_ sender: Any) {
+    @IBAction func didTapActionButton(_ sender: Any) {
         sharedTokenWithPeer = false
         stopBrowsingAndAdvertising()
         isSender = true
@@ -168,16 +166,6 @@ private extension MultipeerViewController {
 
 // MARK: - Style
 private extension MultipeerViewController {
-    func configureSegmentedControl() {
-        segmentedControl.removeAllSegments()
-        segmentedControl.insertSegment(withTitle: "5", at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "4", at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "3", at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "2", at: 0, animated: false)
-        segmentedControl.insertSegment(withTitle: "1", at: 0, animated: false)
-        segmentedControl.selectedSegmentIndex = 0
-    }
-
     func style(for state: MultipeerConnectionState) {
         DispatchQueue.main.async {
             switch state {
@@ -196,33 +184,29 @@ private extension MultipeerViewController {
     func styleForBrowsingState() {
         statusLabel.text = ""
         statusLabel.textColor = .black
-        sendButton.isHidden = false
+        tapButton.isHidden = false
         cancelButton.isHidden = true
-        segmentedControl.isHidden = false
     }
 
     func styleForAdvertisingState() {
         statusLabel.text = "Searching for device"
         statusLabel.textColor = .black
-        sendButton.isHidden = true
+        tapButton.isHidden = true
         cancelButton.isHidden = false
-        segmentedControl.isHidden = true
     }
 
     func styleForConnectingState() {
         statusLabel.text = "Connecting to device"
         statusLabel.textColor = .orange
-        sendButton.isHidden = true
+        tapButton.isHidden = true
         cancelButton.isHidden = false
-        segmentedControl.isHidden = true
     }
 
     func styleForConnectedState() {
         statusLabel.text = "Connected to device. Tap to pass data."
         statusLabel.textColor = .green
-        sendButton.isHidden = true
+        tapButton.isHidden = true
         cancelButton.isHidden = false
-        segmentedControl.isHidden = true
     }
 }
 
@@ -258,15 +242,15 @@ extension MultipeerViewController: MCSessionDelegate {
             peerDidShareDiscoveryToken(peer: peerID, token: discoveryToken)
         } else if let dto = try? JSONDecoder().decode(SandboxDTO.self, from: data) {
             switch dto.type {
-            case .paymentTransferMessage:
-                showAlert(title: "Amount received: \(dto.description ?? "unknown")")
-                send(message: SandboxDTO(type: .messageReceivedConfirmation, description: nil))
+            case .messageTransferType:
+                showAlert(title: "Tapped by \(dto.info ?? "unknown")")
+                send(message: SandboxDTO(type: .messageReceivedConfirmation, info: deviceName))
                 nearbySession?.invalidate()
                 nearbySession = nil
                 stopBrowsingAndAdvertising()
                 startBrowser()
             case .messageReceivedConfirmation:
-                showAlert(title: "Amount sent")
+                showAlert(title: "Tapped \(dto.info ?? "unknown")")
                 nearbySession?.invalidate()
                 nearbySession = nil
                 stopBrowsingAndAdvertising()
@@ -320,8 +304,7 @@ extension MultipeerViewController: NISessionDelegate {
         guard let distance = nearbyObjects.first?.distance else { return }
         distanceLabel.text = String(format:"%.2f m", distance)
         if isNearby(distance), isSender {
-            let description = String(segmentedControl.selectedSegmentIndex + 1)
-            send(message: SandboxDTO(type: .paymentTransferMessage, description: description))
+            send(message: SandboxDTO(type: .messageTransferType, info: deviceName))
             isSender = false
         }
     }
