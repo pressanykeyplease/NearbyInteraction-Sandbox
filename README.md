@@ -6,14 +6,14 @@ This tutorial project is made for practicing in [Nearby Interaction framework](h
 
 ![example](https://github.com/pressanykeyplease/NearbyInteraction-Sandbox/raw/main/NearbyInteraction-Sandbox/Resources/nisandbox-example.gif)
 
-### Limitations
+## Limitations
 * Nearby Interaction is not supported for real devices in [these countries](https://support.apple.com/HT212274)
 * Available for iPhone 11 or later and iPhone SE 2 or later
 
-### Introduction
+## Introduction
 Supported devices and simulators are able to track distance and direction to other devices after exchanging a special token - [NIDiscoveryToken](https://developer.apple.com/documentation/nearbyinteraction/nidiscoverytoken). There are multiple ways to share this token with another device:
 * Core Bluetooth
 * Multipeer Connectivity
-* Server exchange
+* Server
 
 In this sandbox only last two ways are tested. You are welcome to contribute and add another ways of token exchanging.
