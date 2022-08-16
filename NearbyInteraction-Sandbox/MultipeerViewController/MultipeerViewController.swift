@@ -196,6 +196,7 @@ private extension MultipeerViewController {
     }
 
     func styleForConnectingState() {
+        guard isSender else { return }
         statusLabel.text = "Connecting to device"
         statusLabel.textColor = .orange
         tapButton.isHidden = true
@@ -203,6 +204,7 @@ private extension MultipeerViewController {
     }
 
     func styleForConnectedState() {
+        guard isSender else { return }
         statusLabel.text = "Connected to device. Tap to pass data."
         statusLabel.textColor = .green
         tapButton.isHidden = true
