@@ -11,6 +11,7 @@
 		2319364028A4CC8B000F7365 /* MultipeerConnectionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2319363F28A4CC8B000F7365 /* MultipeerConnectionState.swift */; };
 		234B019928AADC9D000F55F1 /* MultipeerSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234B019828AADC9D000F55F1 /* MultipeerSettingsViewController.swift */; };
 		234B019B28AADCA8000F55F1 /* MultipeerSettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 234B019A28AADCA8000F55F1 /* MultipeerSettingsViewController.storyboard */; };
+		235DC77C28ABCA95007E5E2E /* nisandbox-example.gif in Resources */ = {isa = PBXBuildFile; fileRef = 235DC77B28ABCA95007E5E2E /* nisandbox-example.gif */; };
 		237669B72851FFEA00D62A19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669B62851FFEA00D62A19 /* AppDelegate.swift */; };
 		237669B92851FFEA00D62A19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669B82851FFEA00D62A19 /* SceneDelegate.swift */; };
 		237669BB2851FFEA00D62A19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237669BA2851FFEA00D62A19 /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 		2319363F28A4CC8B000F7365 /* MultipeerConnectionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerConnectionState.swift; sourceTree = "<group>"; };
 		234B019828AADC9D000F55F1 /* MultipeerSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerSettingsViewController.swift; sourceTree = "<group>"; };
 		234B019A28AADCA8000F55F1 /* MultipeerSettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MultipeerSettingsViewController.storyboard; sourceTree = "<group>"; };
+		235DC77B28ABCA95007E5E2E /* nisandbox-example.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "nisandbox-example.gif"; sourceTree = "<group>"; };
 		237669B32851FFEA00D62A19 /* NearbyInteraction-Sandbox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NearbyInteraction-Sandbox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		237669B62851FFEA00D62A19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		237669B82851FFEA00D62A19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		237669CB2852000600D62A19 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				235DC77B28ABCA95007E5E2E /* nisandbox-example.gif */,
 				237669BF2851FFEB00D62A19 /* Assets.xcassets */,
 				237669C12851FFEB00D62A19 /* LaunchScreen.storyboard */,
 				237669C42851FFEB00D62A19 /* Info.plist */,
@@ -258,6 +261,7 @@
 				237669C02851FFEB00D62A19 /* Assets.xcassets in Resources */,
 				237669D7285204BC00D62A19 /* ServerViewController.storyboard in Resources */,
 				237669BE2851FFEA00D62A19 /* Main.storyboard in Resources */,
+				235DC77C28ABCA95007E5E2E /* nisandbox-example.gif in Resources */,
 				234B019B28AADCA8000F55F1 /* MultipeerSettingsViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
