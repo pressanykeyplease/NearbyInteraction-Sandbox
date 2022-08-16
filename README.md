@@ -6,6 +6,6 @@ This tutorial project is made for practicing in [Nearby Interaction framework](h
 
 ![example](https://github.com/pressanykeyplease/NearbyInteraction-Sandbox/raw/main/NearbyInteraction-Sandbox/Resources/nisandbox-example.gif)
 
-Limitaions:
+Limitations:
 * Nearby Interaction is not supported for real devices in [these countries](https://support.apple.com/HT212274)
-* List of available devices
+* Available for iPhone 11 or later
