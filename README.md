@@ -27,4 +27,7 @@ We can use Apple's [Multipeer Connectivity](https://developer.apple.com/document
 * Receive distance updates using NISession delegate method
 * As soon as distance gets smaller than some threshold value ("Touch" event) - send any data message to another device.
 
+Important: MultipeerConnectivity has some issues under the hood, which may affect the connection. Sometimes it is impossible to establish a connection for first attempt. If connection is getting established slowly or not getting established, "tap phones" event is not going to work.
+
 ## Server Transport
+This is the preferred way to exchange `NIDiscoveryToken`. Exchange algorithm is the following:
