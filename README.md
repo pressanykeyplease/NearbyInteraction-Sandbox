@@ -17,3 +17,14 @@ Supported devices and simulators are able to track distance and direction to oth
 * Server
 
 In this sandbox only last two ways are tested. You are welcome to contribute and add another ways of token exchanging.
+
+## Multipeer Connectivity Transport
+We can use Apple's [Multipeer Connectivity](https://developer.apple.com/documentation/multipeerconnectivity) framework to exchange `NIDiscoveryToken` and all the following data messages. Exchange algorithm may look like that:
+* Create and establish `MCSession` between two devices
+* Create `NISession` object
+* Send `nearbySession?.discoveryToken` via `MCSession`
+* Run `NISession` using received token
+* Receive distance updates using NISession delegate method
+* As soon as distance gets smaller than some threshold value ("Touch" event) - send any data message to another device.
+
+## Server Transport
