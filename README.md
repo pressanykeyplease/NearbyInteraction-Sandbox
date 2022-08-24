@@ -30,4 +30,10 @@ We can use Apple's [Multipeer Connectivity](https://developer.apple.com/document
 Important: MultipeerConnectivity has some issues under the hood, which may affect the connection. Sometimes it is impossible to establish a connection for first attempt. If connection is getting established slowly or not getting established, "tap phones" event is not going to work.
 
 ## Server Transport
-This is the preferred way to exchange `NIDiscoveryToken`. Exchange algorithm is the following:
+This is the preferred way to exchange `NIDiscoveryToken`. You need your own backend for this type of transport and also you need to manage users' locations. Exchange algorithm is the following:
+* Create `NISession` object
+* Send `nearbySession?.discoveryToken` to your backend
+* Download other user's token from server (which also was uploaded)
+* Run `NISession` using downloaded token
+
+This algorithm works good if you have two users. If you have a lot of users, you don't need to download all tokens from the server. A good workaround may be to manage user's GPS location and download tokens only for users, which are in close proximity.
